@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aroma Flow</title>
+    <link rel="stylesheet" href="./loja.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!--alteração-->
+</head>
+
+<body>
+    <header>
+        <!--mudei o html-->
+        <div class="header-container">
+            <img src="./png.png" alt="Aroma Flow">
+
+            <form action="buscar.php" method="GET" class="barra-pesquisa"> <!--link do php aqui-->
+                <input type="text" placeholder="O que está buscando hoje?">
+                <button type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+
+            </form>
+
+            <nav>
+
+                <ul class="menu">
+                    <li>
+                        <a href="./loja.html">
+                            <i class="fas fa-home"></i>
+                        </a>
+                    </li>
+
+                    <li class="login-menu-item">
+                        <i class="fas fa-user"></i>
+                        <div class="login-dropdown">
+                            <form action="login.php" method="POST">
+                                <h3>Entrar</h3>
+
+                                <input type="email" name="email" placeholder="E-mail" required>
+                                <input type="password" name="senha" placeholder="Senha" required>
+
+                                <button type="submit" class="btn-leia">Login</button>
+
+                                <p>Novo aqui? <a href="cadastro_usuario.html">Cadastre-se</a></p>
+                            </form>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="./carrinho.php">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <div class="carrossel-container">
+        <!-- Slides -->
+        <div class="carrossel-wrapper" id="wrapper">
+            <div class="carrossel-slide">
+                <img src="" alt="Banner 1" />
+            </div>
+            <div class="carrossel-slide">
+                <img src="" alt="Banner 2" />
+            </div>
+            <div class="carrossel-slide">
+                <img src="" alt="Banner 3" />
+            </div>
+            <div class="carrossel-slide">
+                <img src="" alt="Banner 4" />
+            </div>
+            <div class="carrossel-slide">
+                <img src="" alt="Banner 5" />
+            </div>
+        </div>
+
+        <!-- Controles -->
+        <button class="carrossel-btn prev" onclick="mudarSlide(-1)">
+            &#10094;
+        </button>
+        <button class="carrossel-btn next" onclick="mudarSlide(1)">
+            &#10095;
+        </button>
+        <!-- Pontinhos -->
+        <div class="indicadores" id="dots">
+            <span class="ponto ativo" onclick="irParaSlide(0)"></span>
+            <span class="ponto" onclick="irParaSlide(1)"></span>
+            <span class="ponto" onclick="irParaSlide(2)"></span>
+            <span class="ponto" onclick="irParaSlide(3)"></span>
+            <span class="ponto" onclick="irParaSlide(4)"></span>
+        </div>
+    </div>
+    <script>
+        let index = 0;
+        const wrapper = document.getElementById("wrapper");
+        const pontos = document.querySelectorAll(".ponto");
+        const total = 5;
+        function atualizar() {
+            wrapper.style.transform = `translateX(${-index * 100}%)`;
+            pontos.forEach((p, i) => p.classList.toggle("ativo", i === index));
+        }
+        function mudarSlide(n) {
+            index = (index + n + total) % total;
+            atualizar();
+        }
+        function irParaSlide(n) {
+            index = n;
+            atualizar();
+        }
+        setInterval(() => mudarSlide(1), 5000);
+    </script>
+
+</body>
+
+</html>
+
+<main class="container">
+    <section class="noticias">
+        <div class="card-noticia1">
+            <img src="" /> <!--imagem-->
+        </div>
+
+        <div class="card-noticia">
+            <img src="" /> <!--imagem-->
+            <div class="card-conteudo">
+                <h3>nome perfume</h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Repellendus accusantium possimus ea omnis fuga, recusandae,
+                    saepe placeat quam nihil iste exercitationem
+                    ipsum atque a vel tenetur earum ex nostrum tempora
+
+                <h4><br>Preço:</br></h4>
+                </p>
+                <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
+                    <input type="hidden" name="produto_id" value="2">
+                    <button type="submit" class="btn-leia">Adicionar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card-noticia">
+            <img src="" /> <!--imagem-->
+            <div class="card-conteudo">
+                <h3>nome perfume</h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Repellendus accusantium possimus ea omnis fuga, recusandae,
+                    saepe placeat quam nihil iste exercitationem
+                    ipsum atque a vel tenetur earum ex nostrum tempora
+
+                <h4><br>Preço:</br></h4>
+                </p>
+                <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
+                    <input type="hidden" name="produto_id" value="3">
+                    <button type="submit" class="btn-leia">Adicionar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card-noticia">
+            <img src="" /> <!--imagem-->
+            <div class="card-conteudo">
+                <h3>nome perfume</h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Repellendus accusantium possimus ea omnis fuga, recusandae,
+                    saepe placeat quam nihil iste exercitationem
+                    ipsum atque a vel tenetur earum ex nostrum tempora
+
+                <h4><br>Preço:</br></h4>
+                </p>
+                <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
+                    <input type="hidden" name="produto_id" value="4">
+                    <button type="submit" class="btn-leia">Adicionar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card-noticia">
+            <img src="" /> <!--imagem-->
+            <div class="card-conteudo">
+                <h3>nome perfume</h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Repellendus accusantium possimus ea omnis fuga, recusandae,
+                    saepe placeat quam nihil iste exercitationem
+                    ipsum atque a vel tenetur earum ex nostrum tempora
+
+                <h4><br>Preço:</br></h4>
+                </p>
+                <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
+                    <input type="hidden" name="produto_id" value="5">
+                    <button type="submit" class="btn-leia">Adicionar</button>
+                </form>
+            </div>
+        </div>
+
+        <!--Noticias de cupom-->
+        <div class="cupom-container">
+            <div class="cupom">
+                <h2><i class="fa-solid fa-ticket"></i> Cupons</h2>
+                <p>Cupons exclusivos te esperando</p>
+                <h3>Economize até <strong>25%</strong></h3>
+            </div>
+
+            <div class="cupom">
+                <h2><i class="fa-solid fa-seedling"></i> Elegância</h2>
+                <p>Aproveite nossos cupons</p>
+            </div>
+
+            <div class="cupom">
+                <h2><i class="fa-solid fa-seedling"></i> Elegância</h2>
+                <p>Aproveite nossos cupons</p>
+            </div>
+        </div>
+
+        <div class="quebra"></div>
+
+        <div class="card-noticia">
+            <img src="" /> <!--imagem-->
+            <div class="card-conteudo">
+                <h3>nome perfume</h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Repellendus accusantium possimus ea omnis fuga, recusandae,
+                    saepe placeat quam nihil iste exercitationem
+                    ipsum atque a vel tenetur earum ex nostrum tempora
+
+                <h4><br>Preço:</br></h4>
+                </p>
+                <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
+                    <input type="hidden" name="produto_id" value="6">
+                    <button type="submit" class="btn-leia">Adicionar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card-noticia">
+            <img src="" /> <!--imagem-->
+            <div class="card-conteudo">
+                <h3>nome perfume</h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Repellendus accusantium possimus ea omnis fuga, recusandae,
+                    saepe placeat quam nihil iste exercitationem
+                    ipsum atque a vel tenetur earum ex nostrum tempora
+
+                <h4><br>Preço:</br></h4>
+                </p>
+                <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
+                    <input type="hidden" name="produto_id" value="7">
+                    <button type="submit" class="btn-leia">Adicionar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card-noticia">
+            <img src="" /> <!--imagem-->
+            <div class="card-conteudo">
+                <h3>nome perfume</h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Repellendus accusantium possimus ea omnis fuga, recusandae,
+                    saepe placeat quam nihil iste exercitationem
+                    ipsum atque a vel tenetur earum ex nostrum tempora
+
+                <h4><br>Preço:</br></h4>
+                </p>
+                <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
+                    <input type="hidden" name="produto_id" value="8">
+                    <button type="submit" class="btn-leia">Adicionar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card-noticia">
+            <img src="" /> <!--imagem-->
+            <div class="card-conteudo">
+                <h3>nome perfume</h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Repellendus accusantium possimus ea omnis fuga, recusandae,
+                    saepe placeat quam nihil iste exercitationem
+                    ipsum atque a vel tenetur earum ex nostrum tempora
+
+                <h4><br>Preço:</br></h4>
+                </p>
+                <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
+                    <input type="hidden" name="produto_id" value="9">
+                    <button type="submit" class="btn-leia">Adicionar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card-noticia2">
+            <img src="" /> <!--imagem-->
+        </div>
+    </section>
+</main>
+
+<footer class="footer-moderno">
+    <div class="footer-container">
+        <div class="footer-coluna">
+            <h3>Aroma Flow</h3>
+
+            <div class="redes-sociais">
+                <a href="#" class="social-icon">📘</a>
+                <a href="#" class="social-icon">📷</a>
+                <a href="#" class="social-icon">💼</a>
+                <a href="#" class="social-icon">📱</a>
+                <a href="#" class="social-icon">💬</a>
+            </div>
+        </div>
+
+        <div class="footer-coluna">
+            <h4>Contato de Suporte</h4>
+            <ul class="contato-info">
+                <li>📞 (31) 3333-4444</li>
+                <li>✉️ Suporte@aromaflow.com.br</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="footer-bottom-container">
+            <p>© 2026 Aroma Flow - Todos os direitos reservados</p>
+            <p>Desenvolvido por Hadassa e Miguel</p>
+        </div>
+    </div>
+</footer>
+</body>
+
+
+
+</body>
+
+</html>
