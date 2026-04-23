@@ -11,7 +11,25 @@ body {
     background: #f0f0f0e6;
 }
 
+
+
 /*CABEÇA DO SITE*/
+header {
+    position: fixed; /* faz ele ficar fixo */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.4s ease;
+}
+
+/* estado quando rola a página */
+header.scrolled {
+    background: rgba(49, 25, 39, 0.15);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+
 header {
     background: rgba(49, 25, 39, 0.8);
     backdrop-filter: blur(10px);
@@ -19,7 +37,7 @@ header {
 
 
 header {
-    background: linear-gradient(135deg, #311927, #72224e,  #F2C57C);
+    background: linear-gradient(135deg, #311927, #72224e, #F2C57C);
     color: white;
     padding: 7px 0;
     box-shadow: 0 4px 15px rgba(75, 25, 50, 0.3);
@@ -49,7 +67,8 @@ header {
 /* INPUT */
 .barra-pesquisa input {
     width: 100%;
-    padding: 15px 50px 15px 20px; /* espaço pro ícone */
+    padding: 15px 50px 15px 20px;
+    /* espaço pro ícone */
     border-radius: 30px;
     border: none;
     outline: none;
@@ -125,8 +144,7 @@ header {
 }
 
 .carrossel-container {
-    max-width: 1200px;
-    margin: 20px auto;
+    max-width: 9000px;
     position: relative;
     z-index: 2;
     overflow: hidden;
@@ -167,6 +185,7 @@ header {
     border-radius: 25%;
     z-index: 10;
 }
+
 /* Indicadores (Pontinhos) */
 .indicadores {
     position: absolute;
@@ -199,6 +218,18 @@ header {
     padding: 20px;
 }
 
+.title h2 {
+    margin: 40px;
+    gap: 10px;
+    font-size: 28px;
+    color: #311927;
+    font-family: Poppins;
+}
+
+.title i {
+    color: #311927;
+}
+
 /* Card individual */
 .card-noticia {
     background: #fff;
@@ -207,6 +238,9 @@ header {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 560px;
+    margin-top: 50px;
 }
 
 .card-noticia1 img {
@@ -215,6 +249,7 @@ header {
     object-fit: cover;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    border-radius: 20px 0px 20px 0px;
 }
 
 .card-noticia2 img {
@@ -223,6 +258,7 @@ header {
     object-fit: cover;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    border-radius: 20px 0px 20px 0px;
 }
 
 
@@ -252,7 +288,7 @@ header {
 }
 
 .card img:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .card-noticia:hover h3,
@@ -269,9 +305,66 @@ header {
 
 .card-conteudo h4 {
     font-family: Poppins;
-    font-size: 14px;
+    font-size: 20px;
     margin-bottom: 10px;
     color: #311927f5;
+    
+}.card-conteudo {
+    padding: 10px;
+}
+
+.card-noticia:hover {
+    transform: translateY(-20px);
+    background: #311927f5;
+    color: white;
+}
+
+.card-noticia:hover .btn-leia {
+    background: white;
+    color: #311927f5;
+}
+
+.card img:hover {
+    transform: scale(1.05);
+}
+
+.card-noticia:hover h3,
+.card-noticia:hover h4,
+.card-noticia:hover p {
+    color: white;
+}
+
+.card-conteudo h3 {
+    margin-bottom: 5px;
+    font-family: Poppins;
+    color: #612a4a;
+}
+
+.card-conteudo h4 {
+    font-family: Poppins;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #311927f5;
+}
+
+/*coração*/
+.card-noticia {
+    position: relative;
+}
+
+.favorito {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #999;
+    transition: 0.3s;
+     z-index: 10;
+}
+
+.favorito.ativo {
+    color: red;
 }
 
 /* Botão */
@@ -301,10 +394,25 @@ header {
 
 
 .cupom-container {
-    grid-column: 2 / span 4;
+    grid-column: 1 / -1;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cupom h2 {
+    font-family: Poppins;
+}
+
+
+
+
+.cupom:hover {
+    transform: translateY(-10px);
+    background: #decbd6f5;
+    color: #311927f5;
 }
 
 
@@ -322,16 +430,16 @@ header {
     width: 400px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     border: 2px solid #311927f5;
-   
+
 }
 
-.form-container h2{
+.form-container h2 {
     font-family: Poppins;
     color: #311927;
     text-align: center;
 }
 
-.form-container:hover button{
+.form-container:hover button {
     background: #311927;
     color: white;
     border-width: 2px;
@@ -373,29 +481,122 @@ form button {
 
 form button:hover {
     background: #311927f5;
-    
+
 }
 
 /* FOOTER */
-footer {
-    background: #311927f5;
-    text-align: center;
-    padding: 20px;
+.footer-moderno {
+    background: linear-gradient(135deg, #311927, #72224e);
     color: white;
+    padding: 40px 20px 20px;
+    margin-top: 50px;
+}
+
+/* CONTAINER PRINCIPAL */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: auto;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* COLUNAS */
+.footer-coluna {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-coluna h3 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    font-family: Poppins;
+    color: #F2C57C;
+}
+
+.footer-coluna h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* REDES SOCIAIS */
+.redes-sociais {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icon:hover {
+    background: #F2C57C;
+    color: #311927;
+    transform: translateY(-5px) scale(1.1);
+}
+
+/* CONTATO */
+.contato-info {
+    list-style: none;
+    padding: 0;
+}
+
+.contato-info li {
+    margin-bottom: 10px;
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+/* LINHA DE BAIXO */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 30px;
+    padding-top: 15px;
+}
+
+.footer-bottom-container {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* EFEITO HOVER NO TEXTO */
+.footer-coluna p,
+.footer-bottom p {
+    transition: 0.3s;
+}
+
+.footer-coluna p:hover {
+    color: #F2C57C;
+}
+
+.footer-coluna h4 {
+    font-family: Poppins;
+    color: #F2C57C;
+
+
 }
 
 /* RESPONSIVO */
 @media (max-width: 768px) {
-    .header-container {
+    .footer-container {
         flex-direction: column;
-        gap: 10px;
+        text-align: center;
+        align-items: center;
     }
 
-    .grid-noticias {
-        flex-direction: column;
-    }
-
-    .banner {
-        height: 250px;
+    .redes-sociais {
+        justify-content: center;
     }
 }

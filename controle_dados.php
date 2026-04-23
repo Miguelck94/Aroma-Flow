@@ -14,7 +14,6 @@ if (mysqli_num_rows($result) > 0) {
         echo "Quantidade: " . $row['quantidade'] . "<br>";
         echo "Saída: " . $row['saida'] . "<br><br>";
     }
-
 } else {
     echo "Nenhum produto encontrado.";
 }

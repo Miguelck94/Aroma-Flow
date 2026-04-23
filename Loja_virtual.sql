@@ -26,8 +26,8 @@ CREATE TABLE listagem_produtos (
     quantidade INT NOT NULL,
     saida VARCHAR(100)
 );
-DROP TABLE funcionario
 
+DROP TABLE funcionario
 
 CREATE TABLE carrinho (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -38,9 +38,8 @@ CREATE TABLE carrinho (
     Foreign Key (id_produto) REFERENCES produto (id)
 );
 
-
-
 DROP TABLE funcionario;
+
 CREATE TABLE funcionario (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
@@ -51,16 +50,64 @@ CREATE TABLE funcionario (
     id_listagem_produtos INT,
     id_produto INT,
     FOREIGN KEY (id_listagem_produtos) REFERENCES listagem_produto (id),
-    FOREIGN KEY (id_produto) REFERENCES produto (id) 
+    FOREIGN KEY (id_produto) REFERENCES produto (id)
 );
-INSERT INTO funcionario 
-(nome, email, cargo, senha, cidade, id_listagem_produtos, id_produto)
-VALUES
-('Carlos Silva', 'carlos.silva@email.com', 'Gerente', 'carlos123', 'São Paulo', 1, 1),
-('Ana Souza', 'ana.souza@email.com', 'Vendedora', 'ana@2024', 'Rio de Janeiro', 2, 2),
-('João Pereira', 'joao.pereira@email.com', 'Estoquista', 'joao789', 'Belo Horizonte', 3, 3),
-('Mariana Lima', 'mariana.lima@email.com', 'Atendente', 'mari456', 'Salvador', 1, 4),
-('Lucas Ferreira', 'lucas.ferreira@email.com', 'Supervisor', 'lucas321', 'Curitiba', 2, 5);
+
+INSERT INTO
+    funcionario (
+        nome,
+        email,
+        cargo,
+        senha,
+        cidade,
+        id_listagem_produtos,
+        id_produto
+    )
+VALUES (
+        'Carlos Silva',
+        'carlos.silva@email.com',
+        'Gerente',
+        'carlos123',
+        'São Paulo',
+        1,
+        1
+    ),
+    (
+        'Ana Souza',
+        'ana.souza@email.com',
+        'Vendedora',
+        'ana@2024',
+        'Rio de Janeiro',
+        2,
+        2
+    ),
+    (
+        'João Pereira',
+        'joao.pereira@email.com',
+        'Estoquista',
+        'joao789',
+        'Belo Horizonte',
+        3,
+        3
+    ),
+    (
+        'Mariana Lima',
+        'mariana.lima@email.com',
+        'Atendente',
+        'mari456',
+        'Salvador',
+        1,
+        4
+    ),
+    (
+        'Lucas Ferreira',
+        'lucas.ferreira@email.com',
+        'Supervisor',
+        'lucas321',
+        'Curitiba',
+        2,
+        5
+    );
 
 INSERT INTO
     produtos (
@@ -342,3 +389,74 @@ VALUES (1, 1, 199.90),
     (3, 18, 159.90),
     (1, 19, 189.00),
     (2, 20, 174.90);
+
+ALTER TABLE produtos ADD COLUMN img VARCHAR(255);
+
+INSERT INTO produtos (nome, preco, marca, quantidade, img) VALUES
+('Essência Noturna', 199.90, 'AromaLux', 15, 'imagens/Essencia_Noturna.png'),
+('Brisa Floral', 149.50, 'Florence', 20, 'imagens/Brisa_Floral.png'),
+('Ouro Intenso', 259.99, 'Golden Scents', 10, 'imagens/Ouro_Intenso.png'),
+('Doce Encanto', 179.00, 'Sweet Line', 18, 'imagens/Doce_Encanto.png'),
+('Mistério Oriental', 229.90, 'Oriental Fragances', 12, 'imagens/Misterio_Oriental.png'),
+('Fresh Summer', 139.99, 'CoolVibe', 25, 'imagens/Fresh_Summer.png'),
+('Black Night', 279.90, 'Dark Essence', 8, 'imagens/Black_Night.png'),
+('Rose Delicate', 159.90, 'Bella Rosa', 22, 'imagens/Rose_Delicate.png'),
+('Citrus Power', 129.90, 'Energy Fragrance', 30, 'imagens/Citrus_Power.png'),
+('Velvet Touch', 199.00, 'SoftSkin', 14, 'imagens/Velvet_Touch.png'),
+('Ocean Breeze', 169.90, 'BlueWave', 17, 'imagens/Ocean_Breeze.png'),
+('Luxury Gold', 299.90, 'Elite Perfumes', 6, 'imagens/Luxury_Gold.png'),
+('Sweet Vanilla', 149.00, 'Vanilla Dreams', 19, 'imagens/Sweet_Vanilla.png'),
+('Urban Style', 189.90, 'City Scents', 13, 'imagens/Urban_Style.png'),
+('Pure Elegance', 239.90, 'Classic Line', 9, 'imagens/Pure_Elegance.png'),
+('Wild Forest', 179.50, 'Nature Essence', 16, 'imagens/Wild_Forest.png'),
+('Crystal Night', 209.90, 'Shine Perfumes', 11, 'imagens/Crystal_Night.png'),
+('Sunshine Glow', 159.90, 'Sunny Day', 21, 'imagens/Sunshine_Glow.png'),
+('Dark Coffee', 189.00, 'Coffee Scent', 15, 'imagens/Dark_Coffee.png'),
+('Magic Blossom', 174.90, 'Flower Magic', 18, 'imagens/Magic_Blossom.png');
+
+ALTER TABLE carrinho ADD COLUMN quantidade INT DEFAULT 1;
+
+DESCRIBE produtos;
+
+UPDATE produtos SET img = 'imagens/brisa_floral.jpg' WHERE id = 1;
+UPDATE produtos SET img = 'imagens/essencia_noturna.jpg' WHERE id = 2;
+UPDATE produtos SET img = 'imagens/ouro_intenso.jpg' WHERE id = 3;
+UPDATE produtos SET img = 'imagens/doce_encanto.jpg' WHERE id = 4;
+UPDATE produtos SET img = 'imagens/misterio_oriental.jpg' WHERE id = 5;
+UPDATE produtos SET img = 'imagens/fresh_summer.jpg' WHERE id = 6;
+UPDATE produtos SET img = 'imagens/black_night.jpg' WHERE id = 7;
+UPDATE produtos SET img = 'imagens/rose_delicate.jpg' WHERE id = 8;
+UPDATE produtos SET img = 'imagens/citrus_power.jpg' WHERE id = 9;
+UPDATE produtos SET img = 'imagens/velvet_touch.jpg' WHERE id = 10;
+UPDATE produtos SET img = 'imagens/ocean_breeze.jpg' WHERE id = 11
+
+TRUNCATE TABLE carrinho;
+
+SELECT id_produto,nome, img 
+FROM carrinho 
+JOIN produtos p ON carrinho.id_produto = p.id
+WHERE carrinho.id_login_usuario = 1;
+
+UPDATE produtos SET img = 'imagens/brisa_floral.jpg'     WHERE nome = 'Brisa Floral';
+UPDATE produtos SET img = 'imagens/essencia_noturna.jpg' WHERE nome = 'Essência Noturna';
+UPDATE produtos SET img = 'imagens/ouro_intenso.jpg'     WHERE nome = 'Ouro Intenso';
+UPDATE produtos SET img = 'imagens/doce_encanto.jpg'     WHERE nome = 'Doce Encanto';
+UPDATE produtos SET img = 'imagens/misterio_oriental.jpg' WHERE nome = 'Mistério Oriental';
+UPDATE produtos SET img = 'imagens/fresh_summer.jpg'     WHERE nome = 'Fresh Summer';
+UPDATE produtos SET img = 'imagens/black_night.jpg'      WHERE nome = 'Black Night';
+UPDATE produtos SET img = 'imagens/rose_delicate.jpg'    WHERE nome = 'Rose Delicate';
+UPDATE produtos SET img = 'imagens/citrus_power.jpg'     WHERE nome = 'Citrus Power';
+UPDATE produtos SET img = 'imagens/velvet_touch.jpg'     WHERE nome = 'Velvet Touch';
+UPDATE produtos SET img = 'imagens/ocean_breeze.jpg'     WHERE nome = 'Ocean Breeze';
+UPDATE produtos SET img = 'imagens/luxury_gold.jpg'      WHERE nome = 'Luxury Gold';
+UPDATE produtos SET img = 'imagens/sweet_vanilla.jpg'    WHERE nome = 'Sweet Vanilla';
+UPDATE produtos SET img = 'imagens/urban_style.jpg'      WHERE nome = 'Urban Style';
+UPDATE produtos SET img = 'imagens/pure_elegance.jpg'    WHERE nome = 'Pure Elegance';
+UPDATE produtos SET img = 'imagens/wild_forest.jpg'      WHERE nome = 'Wild Forest';
+UPDATE produtos SET img = 'imagens/crystal_night.jpg'    WHERE nome = 'Crystal Night';
+UPDATE produtos SET img = 'imagens/sunshine_glow.jpg'    WHERE nome = 'Sunshine Glow';
+UPDATE produtos SET img = 'imagens/dark_coffee.jpg'      WHERE nome = 'Dark Coffee';
+UPDATE produtos SET img = 'imagens/magic_blossom.jpg'    WHERE nome = 'Magic Blossom';
+
+SELECT id, nome, img FROM produtos ORDER BY id;
+-- Atualiza img dos produtos duplicados (ids 21-40) para o mesmo caminho dos originais

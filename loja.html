@@ -5,16 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aroma Flow</title>
-    <link rel="stylesheet" href="./loja.css">
+    <link rel="stylesheet" href="./loja2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!--alteração-->
 </head>
 
 <body>
+
     <header>
         <!--mudei o html-->
         <div class="header-container">
-            <img src="./png.png" alt="Aroma Flow">
+            <img src="imagens/aroma_flow.png" alt="Aroma Flow">
 
             <form action="buscar.php" method="GET" class="barra-pesquisa"> <!--link do php aqui-->
                 <input type="text" placeholder="O que está buscando hoje?">
@@ -33,20 +34,16 @@
                         </a>
                     </li>
 
-                    <li class="login-menu-item">
-                        <i class="fas fa-user"></i>
-                        <div class="login-dropdown">
-                            <form action="login.php" method="POST">
-                                <h3>Entrar</h3>
+                    <li>
+                        <a href="./favoritos.html">
+                            <i class="fas fa-heart"></i>
+                        </a>
+                    </li>
 
-                                <input type="email" name="email" placeholder="E-mail" required>
-                                <input type="password" name="senha" placeholder="Senha" required>
-
-                                <button type="submit" class="btn-leia">Login</button>
-
-                                <p>Novo aqui? <a href="cadastro_usuario.html">Cadastre-se</a></p>
-                            </form>
-                        </div>
+                    <li>
+                        <a href="./login.php"> <!--link do php aqui-->
+                            <i class="fas fa-user"></i>
+                        </a>
                     </li>
 
                     <li>
@@ -116,229 +113,304 @@
         setInterval(() => mudarSlide(1), 5000);
     </script>
 
-</body>
 
-</html>
+    <main class="container">
+        <section class="noticias">
+            <div class="card-noticia1">
+                <img src="" /> <!--imagem-->
+            </div>
 
-<main class="container">
-    <section class="noticias">
-        <div class="card-noticia1">
-            <img src="" /> <!--imagem-->
-        </div>
+            <div class="card-noticia">
+                <img src="imagens/Brisa_floral.png" /> <!--imagem-->
 
-        <div class="card-noticia">
-            <img src="" /> <!--imagem-->
-            <div class="card-conteudo">
-                <h3>nome perfume</h3>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Repellendus accusantium possimus ea omnis fuga, recusandae,
-                    saepe placeat quam nihil iste exercitationem
-                    ipsum atque a vel tenetur earum ex nostrum tempora
+                <i class="fa-regular fa-heart favorito" data-id="2" data-nome="Brisa Floral" data-preco="R$ 149,50" data-img="imagens/Brisa_floral.png"></i>
+                <!--depois coloca a imagem-->
 
-                <h4><br>Preço:</br></h4>
-                </p>
-                <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
-                    <input type="hidden" name="produto_id" value="2">
-                    <button type="submit" class="btn-leia">Adicionar</button>
-                </form>
+
+                <div class="card-conteudo">
+                    <h3>Brisa Floral</h3>
+                    <p>
+                        Uma fragrância delicada e envolvente, com notas florais suaves que evocam frescor e elegância
+                        natural. Ideal para quem busca leveza com um toque refinado.
+                    </p>
+                    <h4>R$ 149,50</h4>
+                    <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
+                        <input type="hidden" name="id_produto" value="2">
+                        <button type="submit" class="btn-leia">Adicionar</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card-noticia">
+                <img src="imagens/Ouro_Intenso.png" /> <!--imagem-->
+
+                <i class="fa-regular fa-heart favorito" data-id="3" data-nome="Ouro Intenso" data-preco="R$ 259,99" data-img="imagens/Ouro_Intenso.png">
+                </i>
+                <!--depois coloca a imagem-->
+
+
+                <div class="card-conteudo">
+                    <h3>Ouro Intenso</h3>
+                    <p>
+                        Marcante e luxuoso, este perfume combina notas intensas e quentes que transmitem poder e
+                        sofisticação. Uma escolha perfeita para ocasiões especiais.
+                    </p>
+                    <h4>R$ 259,99</h4>
+                    <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
+                        <input type="hidden" name="id_produto" value="3">
+                        <button type="submit" class="btn-leia">Adicionar</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card-noticia">
+                <img src="imagens/Doce_Encanto.png" /> <!--imagem-->
+
+                <i class="fa-regular fa-heart favorito" data-id="4" data-nome="Doce Encanto" data-preco="R$ 179,00" data-img="imagens/Doce_Encanto.png">
+                </i>
+                <!--depois coloca a imagem-->
+
+                <div class="card-conteudo">
+                    <h3>Doce Encanto</h3>
+                    <p>
+                        Uma fragrância irresistivelmente adocicada, com nuances envolventes que despertam charme e
+                        feminilidade. Perfeita para momentos românticos e delicados.
+                    </p>
+                    <h4>R$ 179,00</h4>
+                    <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
+                        <input type="hidden" name="id_produto" value="4">
+                        <button type="submit" class="btn-leia">Adicionar</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card-noticia">
+                <img src="imagens/Misterio_Oriental.png" /> <!--imagem-->
+
+                <i class="fa-regular fa-heart favorito" data-id="5" data-nome="Misterio Oriental"
+                    data-preco="R$ 229,90" data-img="imagens/Misterio_Oriental.png">
+                </i>
+                <!--depois coloca a imagem-->
+
+                <div class="card-conteudo">
+                    <h3>Misterio Oriental</h3>
+                    <p>
+                        Exótico e sofisticado, traz notas orientais profundas e quentes que criam uma aura de mistério e
+                        sedução incomparável.
+                    </p>
+                    <h4>R$ 229,90</h4>
+                    <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
+                        <input type="hidden" name="id_produto" value="5">
+                        <button type="submit" class="btn-leia">Adicionar</button>
+                    </form>
+                </div>
+            </div>
+
+            <!--Noticias de cupom-->
+            <div class="cupom-container">
+                <div class="cupom">
+                    <h2><i class="fa-solid fa-spray-can-sparkles"></i> Sofisticação</h2>
+                    <p>Fragrâncias que marcam presença</p>
+                    <h3>Descubra seu aroma ideal</h3>
+                </div>
+
+                <div class="cupom">
+                    <h2><i class="fa-solid fa-ticket"></i> Cupons</h2>
+                    <p>Cupons exclusivos te esperando</p>
+                    <h3>Economize até <strong>25%</strong></h3>
+                </div>
+
+                <div class="cupom">
+                    <h2><i class="fa-solid fa-fire"></i> Intensidade</h2>
+                    <p>Notas marcantes e envolventes</p>
+                    <h3>Desperte sensações únicas</h3>
+                </div>
+            </div>
+
+            <div class="quebra"></div>
+
+
+            <div class="card-noticia">
+                <img src="imagens/Fresh_Summer.png" /> <!--imagem-->
+
+                <i class="fa-regular fa-heart favorito" data-id="6" data-nome="Fresh Summer" data-preco="R$ 139,99" data-img="imagens/Fresh_Summer.png">
+                </i>
+                <!--depois coloca a imagem-->
+
+
+                <div class="card-conteudo">
+                    <h3>Fresh Summer</h3>
+                    <p>
+                        Refrescante e vibrante, com acordes cítricos e leves que proporcionam uma sensação energizante e
+                        revigorante, ideal para dias ensolarados.
+                    </p>
+                    <h4>R$ 139,99</h4>
+                    <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
+                        <input type="hidden" name="id_produto" value="6">
+                        <button type="submit" class="btn-leia">Adicionar</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card-noticia">
+                <img src="imagens/Black_Night.png" /> <!--imagem-->
+
+                <i class="fa-regular fa-heart favorito" data-id="7" data-nome="Black Night" data-preco="R$ 279,90" data-img="imagens/Black_Night.png">
+                </i>
+                <!--depois coloca a imagem-->
+
+                <div class="card-conteudo">
+                    <h3>Black Night</h3>
+                    <p>
+                        Intenso e sedutor, com notas profundas que revelam elegância e ousadia. Um perfume ideal para
+                        noites marcantes e inesquecíveis
+                    </p>
+                    <h4>R$ 279,90</h4>
+                    <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
+                        <input type="hidden" name="id_produto" value="7">
+                        <button type="submit" class="btn-leia">Adicionar</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card-noticia">
+                <img src="imagens/Rose_Delicate.png" /> <!--imagem-->
+
+                <i class="fa-regular fa-heart favorito" data-id="8" data-nome="Rose Delicate" data-preco="R$ 159,90" data-img="imagens/Rose_Delicate.png">
+                </i>
+                <!--depois coloca a imagem-->
+
+                <div class="card-conteudo">
+                    <h3>Rosa Delicate</h3>
+                    <p>
+                        Uma fragrância elegante que destaca a suavidade da rosa, combinada com toques sutis que exalam
+                        delicadeza e sofisticação.
+                    </p>
+                    <h4>R$ 159,90</h4>
+                    <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
+                        <input type="hidden" name="id_produto" value="8">
+                        <button type="submit" class="btn-leia">Adicionar</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card-noticia">
+                <img src="imagens/Citrus_Power.png" /> <!--imagem-->
+
+                <i class="fa-regular fa-heart favorito" data-id="9" data-nome="Citrus Power" data-preco="R$ 129,90" data-img="imagens/Citrus_Power.png">
+                </i>
+                <!--depois coloca a imagem-->
+
+                <div class="card-conteudo">
+                    <h3>Citrus Power</h3>
+                    <p>
+                        Moderno e energizante, com notas cítricas marcantes que despertam vitalidade e frescor, perfeito
+                        para quem busca presença e leveza ao mesmo tempo.
+                    <h4>R$ 129,90</h4>
+
+                    <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
+                        <input type="hidden" name="id_produto" value="9">
+                        <button type="submit" class="btn-leia">Adicionar</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card-noticia2">
+                <img src="" /> <!--imagem-->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-moderno">
+        <div class="footer-container">
+            <div class="footer-coluna">
+                <h3>Aroma Flow</h3>
+
+                <div class="redes-sociais">
+                    <a href="#" class="social-icon">📘</a>
+                    <a href="#" class="social-icon">📷</a>
+                    <a href="#" class="social-icon">💼</a>
+                    <a href="#" class="social-icon">📱</a>
+                    <a href="#" class="social-icon">💬</a>
+                </div>
+            </div>
+
+            <div class="footer-coluna">
+                <h4>Contato de Suporte</h4>
+                <ul class="contato-info">
+                    <li>📞 (31) 3333-4444</li>
+                    <li>✉️ Suporte@aromaflow.com.br</li>
+                </ul>
             </div>
         </div>
 
-        <div class="card-noticia">
-            <img src="" /> <!--imagem-->
-            <div class="card-conteudo">
-                <h3>nome perfume</h3>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Repellendus accusantium possimus ea omnis fuga, recusandae,
-                    saepe placeat quam nihil iste exercitationem
-                    ipsum atque a vel tenetur earum ex nostrum tempora
-
-                <h4><br>Preço:</br></h4>
-                </p>
-                <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
-                    <input type="hidden" name="produto_id" value="3">
-                    <button type="submit" class="btn-leia">Adicionar</button>
-                </form>
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <p>© 2026 Aroma Flow - Todos os direitos reservados</p>
+                <p>Desenvolvido por Hadassa e Miguel</p>
             </div>
         </div>
+    </footer>
 
-        <div class="card-noticia">
-            <img src="" /> <!--imagem-->
-            <div class="card-conteudo">
-                <h3>nome perfume</h3>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Repellendus accusantium possimus ea omnis fuga, recusandae,
-                    saepe placeat quam nihil iste exercitationem
-                    ipsum atque a vel tenetur earum ex nostrum tempora
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
 
-                <h4><br>Preço:</br></h4>
-                </p>
-                <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
-                    <input type="hidden" name="produto_id" value="4">
-                    <button type="submit" class="btn-leia">Adicionar</button>
-                </form>
-            </div>
-        </div>
+            const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
 
-        <div class="card-noticia">
-            <img src="" /> <!--imagem-->
-            <div class="card-conteudo">
-                <h3>nome perfume</h3>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Repellendus accusantium possimus ea omnis fuga, recusandae,
-                    saepe placeat quam nihil iste exercitationem
-                    ipsum atque a vel tenetur earum ex nostrum tempora
+            document.querySelectorAll('.favorito').forEach(icon => {
+                const id = icon.dataset.id;
 
-                <h4><br>Preço:</br></h4>
-                </p>
-                <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
-                    <input type="hidden" name="produto_id" value="5">
-                    <button type="submit" class="btn-leia">Adicionar</button>
-                </form>
-            </div>
-        </div>
+                // Se já está favoritado
+                if (favoritos.some(item => item.id === id)) {
+                    icon.classList.add('ativo', 'fa-solid');
+                    icon.classList.remove('fa-regular');
+                }
 
-        <!--Noticias de cupom-->
-        <div class="cupom-container">
-            <div class="cupom">
-                <h2><i class="fa-solid fa-ticket"></i> Cupons</h2>
-                <p>Cupons exclusivos te esperando</p>
-                <h3>Economize até <strong>25%</strong></h3>
-            </div>
+                icon.addEventListener('click', () => {
 
-            <div class="cupom">
-                <h2><i class="fa-solid fa-seedling"></i> Elegância</h2>
-                <p>Aproveite nossos cupons</p>
-            </div>
+                    icon.classList.toggle('ativo');
 
-            <div class="cupom">
-                <h2><i class="fa-solid fa-seedling"></i> Elegância</h2>
-                <p>Aproveite nossos cupons</p>
-            </div>
-        </div>
+                    if (icon.classList.contains('ativo')) {
 
-        <div class="quebra"></div>
+                        icon.classList.remove('fa-regular');
+                        icon.classList.add('fa-solid');
 
-        <div class="card-noticia">
-            <img src="" /> <!--imagem-->
-            <div class="card-conteudo">
-                <h3>nome perfume</h3>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Repellendus accusantium possimus ea omnis fuga, recusandae,
-                    saepe placeat quam nihil iste exercitationem
-                    ipsum atque a vel tenetur earum ex nostrum tempora
+                        if (!favoritos.some(item => item.id === id)) {
+                            favoritos.push({
+                                id: id,
+                                nome: icon.dataset.nome,
+                                preco: icon.dataset.preco,
+                                img: icon.dataset.img
+                            });
+                        }
 
-                <h4><br>Preço:</br></h4>
-                </p>
-                <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
-                    <input type="hidden" name="produto_id" value="6">
-                    <button type="submit" class="btn-leia">Adicionar</button>
-                </form>
-            </div>
-        </div>
+                    } else {
 
-        <div class="card-noticia">
-            <img src="" /> <!--imagem-->
-            <div class="card-conteudo">
-                <h3>nome perfume</h3>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Repellendus accusantium possimus ea omnis fuga, recusandae,
-                    saepe placeat quam nihil iste exercitationem
-                    ipsum atque a vel tenetur earum ex nostrum tempora
+                        icon.classList.remove('fa-solid');
+                        icon.classList.add('fa-regular');
 
-                <h4><br>Preço:</br></h4>
-                </p>
-                <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
-                    <input type="hidden" name="produto_id" value="7">
-                    <button type="submit" class="btn-leia">Adicionar</button>
-                </form>
-            </div>
-        </div>
+                        const index = favoritos.findIndex(item => item.id === id);
+                        if (index > -1) favoritos.splice(index, 1);
+                    }
 
-        <div class="card-noticia">
-            <img src="" /> <!--imagem-->
-            <div class="card-conteudo">
-                <h3>nome perfume</h3>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Repellendus accusantium possimus ea omnis fuga, recusandae,
-                    saepe placeat quam nihil iste exercitationem
-                    ipsum atque a vel tenetur earum ex nostrum tempora
+                    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+                });
+            });
 
-                <h4><br>Preço:</br></h4>
-                </p>
-                <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
-                    <input type="hidden" name="produto_id" value="8">
-                    <button type="submit" class="btn-leia">Adicionar</button>
-                </form>
-            </div>
-        </div>
+        });
+    </script>
 
-        <div class="card-noticia">
-            <img src="" /> <!--imagem-->
-            <div class="card-conteudo">
-                <h3>nome perfume</h3>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Repellendus accusantium possimus ea omnis fuga, recusandae,
-                    saepe placeat quam nihil iste exercitationem
-                    ipsum atque a vel tenetur earum ex nostrum tempora
+    <script>
+        window.addEventListener("scroll", function () {
+            const header = document.querySelector("header");
 
-                <h4><br>Preço:</br></h4>
-                </p>
-                <form action="add_carrinho.php" method="POST"> <!--fazer o php-->
-                    <input type="hidden" name="produto_id" value="9">
-                    <button type="submit" class="btn-leia">Adicionar</button>
-                </form>
-            </div>
-        </div>
-
-        <div class="card-noticia2">
-            <img src="" /> <!--imagem-->
-        </div>
-    </section>
-</main>
-
-<footer class="footer-moderno">
-    <div class="footer-container">
-        <div class="footer-coluna">
-            <h3>Aroma Flow</h3>
-
-            <div class="redes-sociais">
-                <a href="#" class="social-icon">📘</a>
-                <a href="#" class="social-icon">📷</a>
-                <a href="#" class="social-icon">💼</a>
-                <a href="#" class="social-icon">📱</a>
-                <a href="#" class="social-icon">💬</a>
-            </div>
-        </div>
-
-        <div class="footer-coluna">
-            <h4>Contato de Suporte</h4>
-            <ul class="contato-info">
-                <li>📞 (31) 3333-4444</li>
-                <li>✉️ Suporte@aromaflow.com.br</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="footer-bottom">
-        <div class="footer-bottom-container">
-            <p>© 2026 Aroma Flow - Todos os direitos reservados</p>
-            <p>Desenvolvido por Hadassa e Miguel</p>
-        </div>
-    </div>
-</footer>
-</body>
-
-
-
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+    </script>
 </body>
 
 </html>
