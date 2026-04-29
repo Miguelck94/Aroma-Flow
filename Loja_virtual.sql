@@ -418,17 +418,7 @@ ALTER TABLE carrinho ADD COLUMN quantidade INT DEFAULT 1;
 
 DESCRIBE produtos;
 
-UPDATE produtos SET img = 'imagens/brisa_floral.jpg' WHERE id = 1;
-UPDATE produtos SET img = 'imagens/essencia_noturna.jpg' WHERE id = 2;
-UPDATE produtos SET img = 'imagens/ouro_intenso.jpg' WHERE id = 3;
-UPDATE produtos SET img = 'imagens/doce_encanto.jpg' WHERE id = 4;
-UPDATE produtos SET img = 'imagens/misterio_oriental.jpg' WHERE id = 5;
-UPDATE produtos SET img = 'imagens/fresh_summer.jpg' WHERE id = 6;
-UPDATE produtos SET img = 'imagens/black_night.jpg' WHERE id = 7;
-UPDATE produtos SET img = 'imagens/rose_delicate.jpg' WHERE id = 8;
-UPDATE produtos SET img = 'imagens/citrus_power.jpg' WHERE id = 9;
-UPDATE produtos SET img = 'imagens/velvet_touch.jpg' WHERE id = 10;
-UPDATE produtos SET img = 'imagens/ocean_breeze.jpg' WHERE id = 11
+
 
 TRUNCATE TABLE carrinho;
 
@@ -437,26 +427,26 @@ FROM carrinho
 JOIN produtos p ON carrinho.id_produto = p.id
 WHERE carrinho.id_login_usuario = 1;
 
-UPDATE produtos SET img = 'imagens/brisa_floral.jpg'     WHERE nome = 'Brisa Floral';
-UPDATE produtos SET img = 'imagens/essencia_noturna.jpg' WHERE nome = 'Essência Noturna';
-UPDATE produtos SET img = 'imagens/ouro_intenso.jpg'     WHERE nome = 'Ouro Intenso';
-UPDATE produtos SET img = 'imagens/doce_encanto.jpg'     WHERE nome = 'Doce Encanto';
-UPDATE produtos SET img = 'imagens/misterio_oriental.jpg' WHERE nome = 'Mistério Oriental';
-UPDATE produtos SET img = 'imagens/fresh_summer.jpg'     WHERE nome = 'Fresh Summer';
-UPDATE produtos SET img = 'imagens/black_night.jpg'      WHERE nome = 'Black Night';
-UPDATE produtos SET img = 'imagens/rose_delicate.jpg'    WHERE nome = 'Rose Delicate';
-UPDATE produtos SET img = 'imagens/citrus_power.jpg'     WHERE nome = 'Citrus Power';
-UPDATE produtos SET img = 'imagens/velvet_touch.jpg'     WHERE nome = 'Velvet Touch';
-UPDATE produtos SET img = 'imagens/ocean_breeze.jpg'     WHERE nome = 'Ocean Breeze';
-UPDATE produtos SET img = 'imagens/luxury_gold.jpg'      WHERE nome = 'Luxury Gold';
-UPDATE produtos SET img = 'imagens/sweet_vanilla.jpg'    WHERE nome = 'Sweet Vanilla';
-UPDATE produtos SET img = 'imagens/urban_style.jpg'      WHERE nome = 'Urban Style';
-UPDATE produtos SET img = 'imagens/pure_elegance.jpg'    WHERE nome = 'Pure Elegance';
-UPDATE produtos SET img = 'imagens/wild_forest.jpg'      WHERE nome = 'Wild Forest';
-UPDATE produtos SET img = 'imagens/crystal_night.jpg'    WHERE nome = 'Crystal Night';
-UPDATE produtos SET img = 'imagens/sunshine_glow.jpg'    WHERE nome = 'Sunshine Glow';
-UPDATE produtos SET img = 'imagens/dark_coffee.jpg'      WHERE nome = 'Dark Coffee';
-UPDATE produtos SET img = 'imagens/magic_blossom.jpg'    WHERE nome = 'Magic Blossom';
+UPDATE produtos SET img = 'imagens/brisa_floral.png'     WHERE nome = 'Brisa Floral';
+UPDATE produtos SET img = 'imagens/essencia_noturna.png' WHERE nome = 'Essência Noturna';
+UPDATE produtos SET img = 'imagens/ouro_intenso.png'     WHERE nome = 'Ouro Intenso';
+UPDATE produtos SET img = 'imagens/doce_encanto.png'     WHERE nome = 'Doce Encanto';
+UPDATE produtos SET img = 'imagens/misterio_oriental.png' WHERE nome = 'Mistério Oriental';
+UPDATE produtos SET img = 'imagens/fresh_summer.png'     WHERE nome = 'Fresh Summer';
+UPDATE produtos SET img = 'imagens/black_night.png'      WHERE nome = 'Black Night';
+UPDATE produtos SET img = 'imagens/rose_delicate.png'    WHERE nome = 'Rose Delicate';
+UPDATE produtos SET img = 'imagens/citrus_power.png'     WHERE nome = 'Citrus Power';
+UPDATE produtos SET img = 'imagens/velvet_touch.png'     WHERE nome = 'Velvet Touch';
+UPDATE produtos SET img = 'imagens/ocean_breeze.png'     WHERE nome = 'Ocean Breeze';
+UPDATE produtos SET img = 'imagens/luxury_gold.png'      WHERE nome = 'Luxury Gold';
+UPDATE produtos SET img = 'imagens/sweet_vanilla.png'    WHERE nome = 'Sweet Vanilla';
+UPDATE produtos SET img = 'imagens/urban_style.png'      WHERE nome = 'Urban Style';
+UPDATE produtos SET img = 'imagens/pure_elegance.png'    WHERE nome = 'Pure Elegance';
+UPDATE produtos SET img = 'imagens/wild_forest.png'      WHERE nome = 'Wild Forest';
+UPDATE produtos SET img = 'imagens/crystal_night.png'    WHERE nome = 'Crystal Night';
+UPDATE produtos SET img = 'imagens/sunshine_glow.png'    WHERE nome = 'Sunshine Glow';
+UPDATE produtos SET img = 'imagens/dark_coffee.png'      WHERE nome = 'Dark Coffee';
+UPDATE produtos SET img = 'imagens/magic_blossom.png'    WHERE nome = 'Magic Blossom';
 
 SELECT id, nome, img FROM produtos ORDER BY id;
 -- Atualiza img dos produtos duplicados (ids 21-40) para o mesmo caminho dos originais

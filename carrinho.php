@@ -9,7 +9,7 @@ include("conexao.php");
 
 $usuario_id = $_SESSION['id'] ?? 0;
 
-$sql = "SELECT produtos.nome, produtos.preco, produtos.img
+$sql = "SELECT produtos.id, produtos.nome, produtos.preco, produtos.img, carrinho.quantidade
         FROM carrinho
         JOIN produtos ON carrinho.id_produto = produtos.id  
         WHERE carrinho.id_login_usuario = $usuario_id";
@@ -17,7 +17,7 @@ $sql = "SELECT produtos.nome, produtos.preco, produtos.img
 
 $result = mysqli_query($conexao, $sql);
 
-$sqlTotal = "SELECT SUM(produtos.preco) AS total
+$sqlTotal = "SELECT SUM(produtos.preco * carrinho.quantidade) AS total
              FROM carrinho
              JOIN produtos ON carrinho.id_produto = produtos.id  
              WHERE carrinho.id_login_usuario = $usuario_id";
@@ -183,6 +183,39 @@ $total = mysqli_fetch_assoc($resultTotal)['total'] ?? 0;
             font-family: Poppins;
             padding: 5px 0;
         }
+
+        .btn {
+            background-color: #F2C57C;
+            border: none;
+            padding: 8px 12px;
+        }
+
+        .btn-box {
+            display: flex;
+            gap: 10px;
+            /* espaço entre os botões */
+            justify-content: center;
+            /* centraliza no td */
+            align-items: center;
+        }
+
+        .btn {
+            padding: 6px 12px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            transition: 0.2s ease;
+            color: #72224e;
+        }
+
+        .btn.editar {
+            background-color: #3498db;
+        }
+
+        .btn.excluir:hover {
+            background-color: #D16A7E;
+        }
     </style>
 
 <body>
@@ -233,6 +266,12 @@ $total = mysqli_fetch_assoc($resultTotal)['total'] ?? 0;
                 <h3><?= $item['nome'] ?></h3>
                 <p>R$ <?= number_format($item['preco'], 2, ',', '.') ?></p>
             </div>
+
+            <a href="deletar_produtos.php?id=<?= $item['id'] ?>"
+                class="btn"
+                onclick="return confirm('Tem certeza que deseja excluir este produto?')">
+                Excluir
+            </a>
         </div>
 
     <?php } ?>
